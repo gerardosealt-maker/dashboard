@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Leads</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/ui.css">
+</head>
+
+<body class="bg-slate-50 text-gray-800 transition-colors">
+
+<header class="container mx-auto px-6 py-6">
+  <div class="card flex justify-between items-center">
+    <div>
+      <h1 class="text-3xl font-extrabold text-indigo-600">Dashboard de Leads</h1>
+      <p class="text-gray-500">Herramienta de análisis comercial</p>
+    </div>
+
+    <button id="darkToggle" class="toggle-btn">🌙</button>
+  </div>
+</header>
+
+<main class="container mx-auto px-6 pb-12 space-y-8">
+
+<section class="card">
+  <h2 class="section-title">Carga de datos</h2>
+  <input type="file" id="csvInput" accept=".csv">
+  <p id="uploadStatus" class="status-text"></p>
+</section>
+
+<section id="filters" class="card hidden">
+  <h2 class="section-title">Filtros</h2>
+  <select id="advisorFilter" class="filter">
+    <option value="all">Todos los asesores</option>
+  </select>
+
+  <select id="statusFilter" class="filter">
+    <option value="all">Todas las calificaciones</option>
+    <option value="venta">Venta</option>
+    <option value="no interesado">No interesado</option>
+    <option value="no contesto">No contestó</option>
+    <option value="no perfila">No perfila</option>
+  </select>
+</section>
+
+<section id="kpi-section" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 hidden">
+  <div class="kpi-card"><p class="kpi-label">Leads</p><p id="kpi-leads" class="kpi-value">0</p></div>
+  <div class="kpi-card"><p class="kpi-label">Ventas</p><p id="kpi-sales" class="kpi-value">0</p></div>
+  <div class="kpi-card"><p class="kpi-label">Conversión</p><p id="kpi-conversion" class="kpi-value">0%</p></div>
+  <div class="kpi-card"><p class="kpi-label">Calidad</p><p id="kpi-quality" class="kpi-value">0%</p></div>
+</section>
+
+<section id="chart-section" class="card hidden">
+  <h2 class="section-title">Funnel</h2>
+  <canvas id="funnelChart"></canvas>
+</section>
+
+<section id="table-section" class="card hidden">
+  <h2 class="section-title">Tabla de asesores</h2>
+  <table class="min-w-full text-sm">
+    <thead><tr><th>Asesor</th><th class="text-right">Leads</th><th class="text-right">Ventas</th></tr></thead>
+    <tbody id="advisorTable"></tbody>
+  </table>
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

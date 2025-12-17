@@ -1,0 +1,48 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.card {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.kpi-card {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: linear-gradient(145deg,#fff,#f3f4f6);
+}
+
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.filter {
+  margin-right: 1rem;
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+  border: 1px solid #d1d5db;
+}
+
+.toggle-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.dark body {
+  background:#0f172a;
+  color:#e5e7eb;
+}
+
+.dark .card {
+  background:#020617;
+  color:#e5e7eb;
+}
